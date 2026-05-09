@@ -34,5 +34,6 @@ return [
     'thanks_for_rating' => 'Thanks for your feedback! We appreciate it.',
     'already_rated' => 'You have already submitted a rating for this product.',
     'save' => 'Save',
-    'cancel' => 'Cancel'
+    'cancel' => 'Cancel',
+    'add_to_cart_success' => 'Product has been added to your cart'
 ];

@@ -27,3 +27,7 @@ $routes->add('/products/view_product/(:any)', 'Products::view/$1');
 
 //Rating
 $routes->add('/rate/product', 'Products::rate');
+
+//Cart
+$routes->add('/cart/add-to-cart', 'Cart::add');
+$routes->add('/cart/view-cart', 'Cart::index');

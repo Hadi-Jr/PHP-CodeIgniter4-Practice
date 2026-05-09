@@ -34,5 +34,6 @@ return [
     'thanks_for_rating' => 'Danke für Ihr Feedback! Wir wissen es zu schätzen.',
     'already_rated' => 'Sie haben bereits eine Bewertung für dieses Produkt abgegeben.',
     'save' => 'Speichern',
-    'cancel' => 'Abbrechen'
+    'cancel' => 'Abbrechen',
+    'add_to_cart_success' => 'Das Produkt wurde im Warenkorb hinzugefügt.'
 ];

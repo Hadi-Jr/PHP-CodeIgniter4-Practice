@@ -124,7 +124,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <p>
-                                                <button type="submit" class="btn btn-success btn-rounded">
+                                                <button id="add-to-cart" type="submit" class="btn btn-success btn-rounded">
                                                     <i class="fa-solid fa-cart-shopping"></i>
                                                     <?= lang('App.add_to_cart') ?>
                                                 </button>
@@ -274,7 +274,8 @@
                                 Swal.fire({
                                     icon: "warning",
                                     title: response.message,
-                                    footer: "<a href=\"" + "<?= base_url('/login') ?>" + "\"><?= lang('App.login_here') ?></a>"
+                                    footer: "<a href=\"" + "<?= base_url('/login') ?>"
+                                        + "\"><?= lang('App.login_here') ?></a>"
                                 });
                             }
                         }
@@ -305,5 +306,24 @@
 </script>
 
 <script>
+    $('button#add-to-cart').on('click', function(e) {
+        e.preventDefault();
+        var product_id = <?= $product_data->id ?>;
+        var quantity = $('input.qty-selector').val();
 
+        $.ajax({
+            url: '<?= base_url('/cart/add-to-cart') ?>',
+            data: {
+                'product_id' : product_id,
+                'quantity' : quantity
+            },
+            type: 'post',
+            dataType: 'json',
+            success: function (response) {
+                if (response.success) {
+                    Swal.fire(response.message , "", "success");
+                }
+            }
+        });
+    });
 </script>
