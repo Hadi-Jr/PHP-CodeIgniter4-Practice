@@ -99,4 +99,17 @@ class CartsModel
 
         return $cart;
     }
+
+    public function transferGuestCartToUser($user_id, $session_id)
+    {
+        $cart = $this->getActiveCart($session_id);
+
+        if ($cart) {
+            $this->db->table('carts')
+                ->where('session_id', $session_id)
+                ->update([
+                    'user_id' => $user_id
+                ]);
+        }
+    }
 }

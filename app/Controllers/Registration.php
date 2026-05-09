@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\CartsModel;
 use App\Models\ClientsModel;
 use Config\Database;
 
@@ -9,11 +10,13 @@ class Registration extends BaseController
 {
     protected $db;
     protected $clientsModel;
+    protected $cartsModel;
 
     public function __construct()
     {
         $this->db = Database::connect();
         $this->clientsModel = new ClientsModel($this->db);
+        $this->cartsModel = new CartsModel($this->db);
     }
 
     public function index()
@@ -64,6 +67,9 @@ class Registration extends BaseController
                     ];
                 } else {
                     session()->set('user_info', $user);
+
+                    $session_id = session_id();
+                    $this->cartsModel->transferGuestCartToUser($user->id, $session_id);
 
                     $this->data['alert_message'] = [
                         'type' => 'success',
