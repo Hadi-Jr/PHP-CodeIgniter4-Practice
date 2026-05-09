@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="<?= base_url('assets/css/seipkon.css') ?>">
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="<?= base_url('assets/css/responsive.css') ?>">
-
+    <link rel="stylesheet" href="https://unpkg.com/rater-js@1.0.1/index.css">
     <!-- jQuery UI CSS -->
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="<?= base_url('assets/css/my.css') ?>">
@@ -52,5 +52,5 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <!-- jQuery UI JS -->
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-
+<script src="https://unpkg.com/rater-js@1.0.1/index.js"></script>
 </body>

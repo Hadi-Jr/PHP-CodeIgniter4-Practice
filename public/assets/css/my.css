@@ -29,3 +29,43 @@
     margin-top: 100px;
     font-size: 20px;
 }
+
+.product-price {
+    color: #1cd0c7;
+}
+
+.quantity-btns {
+    display: flex;
+    align-items: center;
+}
+
+.submit-rating-btn {
+    margin-top: -20px;
+}
+
+.spacing-bottom-1 {
+    margin-bottom: 1em;
+}
+
+.spacing-bottom-2 {
+    margin-bottom: 2em;
+}
+
+.spacing-bottom-3 {
+    margin-bottom: 3em;
+}
+
+.spacing-bottom-4 {
+    margin-bottom: 4em;
+}
+
+input.qty-selector {
+    border: none;
+    width: 20%;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    background: transparent;
+    outline: none;
+    padding: 8px 0;
+}

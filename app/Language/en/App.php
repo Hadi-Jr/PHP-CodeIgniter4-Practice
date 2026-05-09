@@ -19,5 +19,20 @@ return [
     'confirm_password_placeholder' => 'Confirm Password',
     'register' => 'Register',
     'successful_login' => 'Logged in successfully',
-    'successful_registration' => 'Registered successfully'
+    'successful_registration' => 'Registered successfully',
+    'home' => 'Home',
+    'product_info' => 'Product Info',
+    'by' => 'by',
+    'left' => 'left',
+    'description' => 'Description',
+    'features' => 'Features',
+    'add_to_cart' => 'Add To Cart',
+    'free_delivery' => 'Free shipping over €25',
+    'rating_title' => 'How would you rate your experience?',
+    'rating_text' => 'Your feedback helps us improve',
+    'login_required' => 'You need to log in before rating this product.',
+    'thanks_for_rating' => 'Thanks for your feedback! We appreciate it.',
+    'already_rated' => 'You have already submitted a rating for this product.',
+    'save' => 'Save',
+    'cancel' => 'Cancel'
 ];

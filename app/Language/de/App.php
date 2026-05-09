@@ -19,5 +19,20 @@ return [
     'confirm_password_placeholder' => 'Passwort bestätigen',
     'register' => 'Registrieren',
     'successful_login' => 'Erfolgreich angemeldet',
-    'successful_registration' => 'Erfolgreich registriert'
+    'successful_registration' => 'Erfolgreich registriert',
+    'home' => 'Start',
+    'product_info' => 'Produktinformationen',
+    'by' => 'von',
+    'left' => 'übrig',
+    'description' => 'Beschreibung',
+    'features' => 'Merkmale',
+    'add_to_cart' => 'In den Warenkorb legen',
+    'free_delivery' => 'Kostenloser Versand ab 25 €',
+    'rating_title' => 'Wie würden Sie Ihre Erfahrung bewerten?',
+    'rating_text' => 'Ihr Feedback hilft uns, uns zu verbessern',
+    'login_required' => 'Sie müssen sich anmelden, bevor Sie dieses Produkt bewerten können.',
+    'thanks_for_rating' => 'Danke für Ihr Feedback! Wir wissen es zu schätzen.',
+    'already_rated' => 'Sie haben bereits eine Bewertung für dieses Produkt abgegeben.',
+    'save' => 'Speichern',
+    'cancel' => 'Abbrechen'
 ];

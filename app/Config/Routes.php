@@ -22,3 +22,8 @@ $routes->add('/login', 'Registration::index');
 $routes->add('/register', 'Registration::registerNewUser');
 $routes->add('/logout', 'Registration::logout');
 
+//Products
+$routes->add('/products/view_product/(:any)', 'Products::view/$1');
+
+//Rating
+$routes->add('/rate/product', 'Products::rate');
