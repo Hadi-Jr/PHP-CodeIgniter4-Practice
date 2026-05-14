@@ -112,4 +112,121 @@ class CartsModel
                 ]);
         }
     }
+
+    public function getCartItems($session_id, $user_id)
+    {
+        $cart = $this->getActiveCart($session_id, $user_id);
+
+        if ($cart) {
+            $cartItems = $this->db
+                ->table('cart_items ci')
+                ->select('ci.*, p.price, p.image_url, p.en_name, p.bg_name, p.de_name')
+                ->where('ci.cart_id', $cart->id)
+                ->join('products p', 'ci.product_id = p.id')
+                ->get()
+                ->getResult();
+
+            return $cartItems;
+        }
+        return false;
+    }
+
+    public function deleteItem($item_id)
+    {
+        $cartItemTable = $this->db->table('cart_items');
+        $cartItem = $cartItemTable->where('id', $item_id)->get()->getRow();
+
+        if ($cartItemTable->where('id', $item_id)->delete()) {
+            if (!$cartItemTable->where('cart_id', $cartItem->cart_id)->get()->getResult()) {
+                $this->db->table('carts')
+                    ->where('id', $cartItem->cart_id)
+                    ->update([
+                        'status' => 2
+                    ]);
+            }
+
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function updateSubtotal($item_id, $type)
+    {
+        $cartItem = $this->db
+            ->table('cart_items')
+            ->where('id', $item_id)
+            ->get()
+            ->getRow();
+
+        $productPrice = $this->db
+            ->table('products')
+            ->where('id', $cartItem->product_id)
+            ->get()
+            ->getRow('price');
+
+        if ($type === 'increase') {
+            $newSubtotal = $cartItem->subtotal + $productPrice;
+        } else {
+            $newSubtotal = $cartItem->subtotal - $productPrice;
+        }
+
+        if ($this->db
+            ->table('cart_items')
+            ->where('id', $item_id)
+            ->update([
+                'subtotal' => $newSubtotal
+            ])) {
+            return $newSubtotal;
+        }
+        return false;
+    }
+
+    public function decreaseQtyAndGetSubtotal($item_id)
+    {
+        //update total
+        $itemQuantity = $this->db
+            ->table('cart_items')
+            ->where('id', $item_id)
+            ->get()
+            ->getRow('quantity');
+
+        $itemQuantity--;
+
+        $newSubTotal = $this->updateSubtotal($item_id, 'decrease');
+
+        if ($this->db->table('cart_items')
+            ->where('id', $item_id)
+            ->update(
+                ['quantity' => $itemQuantity]
+            )) {
+            return $newSubTotal;
+        }
+
+        return false;
+    }
+
+    public function increaseQtyAndGetSubtotal($item_id)
+    {
+        //update total
+        $itemQuantity = $this->db
+            ->table('cart_items')
+            ->where('id', $item_id)
+            ->get()
+            ->getRow('quantity');
+
+        $itemQuantity++;
+
+        $newSubTotal = $this->updateSubtotal($item_id, 'increase');
+
+        if ($this->db->table('cart_items')
+            ->where('id', $item_id)
+            ->update(
+                ['quantity' => $itemQuantity]
+            )) {
+            return $newSubTotal;
+        }
+
+        return false;
+    }
 }

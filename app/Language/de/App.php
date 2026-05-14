@@ -35,5 +35,14 @@ return [
     'already_rated' => 'Sie haben bereits eine Bewertung für dieses Produkt abgegeben.',
     'save' => 'Speichern',
     'cancel' => 'Abbrechen',
-    'add_to_cart_success' => 'Das Produkt wurde im Warenkorb hinzugefügt.'
+    'add_to_cart_success' => 'Das Produkt wurde im Warenkorb hinzugefügt.',
+    'cart' => 'Mein Warenkorb',
+    'empty_cart_message' => 'Dein Warenkorb ist leer',
+    'product_name' => 'Produktname',
+    'quantity' => 'Menge',
+    'price' => 'Preis',
+    'subtotal' => 'Zwischensumme',
+    'action' => 'Aktion',
+    'sure_to_delete' => 'Sind Sie sicher, dass Sie diesen Artikel löschen möchten?',
+    'item_deleted' => 'Der Artikel wurde erfolgreich gelöscht.'
 ];

@@ -9,15 +9,14 @@
                         <div class="row">
                             <div class="col-md-6  col-sm-6">
                                 <div class="seipkon-breadcromb-left">
-                                    <h3><?= $category_name ?></h3>
+                                    <h3><?= lang('App.cart') ?></h3>
                                 </div>
                             </div>
                             <div class="col-md-6  col-sm-6">
                                 <div class="seipkon-breadcromb-right">
                                     <ul>
-                                        <li><a href="<?= base_url('/') ?>"><?= lang('App.home') ?></a></li>
-                                        <li>categories</li>
-                                        <li><?= strtolower($category_name) ?></li>
+                                        <li><a href="<?= base_url('/') ?>"><?= lang('App.home')?></a></li>
+                                        <li><?= lang('App.cart') ?></li>
                                     </ul>
                                 </div>
                             </div>
@@ -27,7 +26,7 @@
             </div>
             <!-- End Breadcromb Row -->
             <div class="empty-category">
-                <p><?= lang('App.empty_cat_message') ?></p>
+                <p><?= lang('App.empty_cart_message') ?></p>
             </div>
 
         </div>

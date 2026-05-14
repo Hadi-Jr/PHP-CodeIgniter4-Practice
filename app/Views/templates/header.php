@@ -47,7 +47,7 @@
                     </div>
                     <div class="header-top-right-section pull-right">
                         <div class="header-set">
-                            <a style="cursor: pointer; font-size: 22px; margin-right: 10px;">
+                            <a style="cursor: pointer; font-size: 22px; margin-right: 10px;" href="<?= base_url('/cart/view-cart') ?>">
                                 <i class="fa-solid fa-cart-shopping"></i>
                             </a>
                             <?php

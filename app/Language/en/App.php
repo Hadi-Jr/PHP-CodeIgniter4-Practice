@@ -35,5 +35,14 @@ return [
     'already_rated' => 'You have already submitted a rating for this product.',
     'save' => 'Save',
     'cancel' => 'Cancel',
-    'add_to_cart_success' => 'Product has been added to your cart'
+    'add_to_cart_success' => 'Product has been added to your cart',
+    'cart' => 'My Cart',
+    'empty_cart_message' => 'Your cart is empty',
+    'product_name' => 'name',
+    'quantity' => 'quantity',
+    'price' => 'price',
+    'subtotal' => 'subtotal',
+    'action' => 'action',
+    'sure_to_delete' => 'Are you sure you want to delete the item ?',
+    'item_deleted' => 'The item has been successfully deleted.'
 ];

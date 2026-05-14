@@ -31,3 +31,6 @@ $routes->add('/rate/product', 'Products::rate');
 //Cart
 $routes->add('/cart/add-to-cart', 'Cart::add');
 $routes->add('/cart/view-cart', 'Cart::index');
+$routes->add('/cart/remove-cart-item', 'Cart::removeCartItem');
+$routes->add('/decrease-quantity', 'Cart::decreaseQuantity');
+$routes->add('/increase-quantity', 'Cart::increaseQuantity');

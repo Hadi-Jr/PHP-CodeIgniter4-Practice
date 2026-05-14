@@ -23,7 +23,6 @@ class Categories extends BaseController
     {
         $locale = session()->get('locale');
         $localeCatSuffix = $locale . '_name';
-        $localeEmptyCatSuffix = $locale . '_empty';
 
         $category = $this->categoriesModel->get_category_by_slug($category_slug);
 
