@@ -164,7 +164,7 @@ Only Use For Dashboard (index.html) Page.
 					value: 30
 				},
 				{
-					label: "Mail-Order Sales",
+					label: "Mail-Orders Sales",
 					value: 20
 				}
 			],

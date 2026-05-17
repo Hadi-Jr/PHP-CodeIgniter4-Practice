@@ -54,7 +54,7 @@
                                         <td><?= $ci->{session()->get('locale') . '_name'} ?></td>
                                         <td>$<?= $ci->price ?></td>
                                         <td><?= $ci->quantity ?></td>
-                                        <td>$<?= $ci->subtotal ?></td>
+                                        <td class="sub_total_amount_<?= $ci->id ?>">$<?= $ci->subtotal ?></td>
                                         <td>
                                             <div class="quantity-btns" style="width: 50%" data-id="<?= $ci->id ?>">
                                                 <button id="decrease-qty-btn" type="submit" class="btn btn-bordered-success btn-rounded decrease">
@@ -82,9 +82,10 @@
                                     <td colspan="2">
                                         <div style="display: flex; align-items: center; justify-content: space-evenly" class="table-footer single-button-item" bis_skin_checked="1">
                                             <strong class="total-amount" style="font-size: 18px">Total: $<?= $total ?></strong>
-                                            <button class="btn btn-success btn-lg btn-rounded">
+                                            <a href="<?= base_url('/order/checkout/' . $ci->cart_id) ?>"
+                                               class="btn btn-success btn-lg btn-rounded">
                                                 Proceed to checkout
-                                            </button>
+                                            </a>
                                         </div>
                                     </td>
                                 </tr>
@@ -142,8 +143,10 @@
                 },
                 success: function (response) {
                     if (response.success) {
-                        $('.total-amount').html('$' + response.subtotal.toFixed(2));
+                        $('.sub_total_amount_' + productId).html('$' + response.subtotal.toFixed(2));
+                        $('.total-amount').html('Total: $' + response.total.toFixed(2));
                         Swal.fire({
+                            icon: 'info',
                             text: 'Quantity decreased',
                             position: 'bottom-left',
                             toast: true,
@@ -174,8 +177,10 @@
             },
             success: function (response) {
                 if (response.success) {
-                    $('.total-amount').html('$' + response.subtotal.toFixed(2));
+                    $('.sub_total_amount_' + productId).html('$' + response.subtotal.toFixed(2));
+                    $('.total-amount').html('Total: $' + response.total.toFixed(2));
                     Swal.fire({
+                        icon: 'info',
                         text: 'Quantity increased',
                         position: 'bottom-left',
                         toast: true,

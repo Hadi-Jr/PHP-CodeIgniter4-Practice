@@ -45,4 +45,18 @@ return [
     'action' => 'Действие',
     'sure_to_delete' => 'Сигурни ли сте, че искате да изтриете този артикул?',
     'item_deleted' => 'Артикулът беше успешно изтрит.',
+    'full_name' => 'Пълно име',
+    'enter_full_name' => 'Въведете пълно име',
+    'enter_email' => 'Въведете имейл',
+    'phone_number' => 'Телефонен номер',
+    'enter_phone_number' => 'Въведете телефонен номер',
+    'shipping_address' => 'Адрес за доставка',
+    'notes' => 'Бележки',
+    'name_on_cart' => 'Име на картата',
+    'enter_cvv' => 'Въведете CVV',
+    'validity' => 'Валидност',
+    'card_number' => 'Номер на карта',
+    'enter_card_number' => 'Въведете номер на карта',
+    'summary' => 'Обобщение',
+    'total' => 'Общо'
 ];

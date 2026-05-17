@@ -34,3 +34,7 @@ $routes->add('/cart/view-cart', 'Cart::index');
 $routes->add('/cart/remove-cart-item', 'Cart::removeCartItem');
 $routes->add('/decrease-quantity', 'Cart::decreaseQuantity');
 $routes->add('/increase-quantity', 'Cart::increaseQuantity');
+
+//Orders
+//TODO add filters
+$routes->add('/order/checkout/(:any)', 'Orders::index/$1');

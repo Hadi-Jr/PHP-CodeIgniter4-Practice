@@ -113,6 +113,20 @@ class CartsModel
         }
     }
 
+    public function getCartItemsByCartId($cart_id)
+    {
+        //name, image
+        $cart_items = $this->db
+            ->table('cart_items ci')
+            ->select('ci.quantity, ci.subtotal, p.en_name, p.bg_name, p.de_name, p.price, p.image_url')
+            ->where('cart_id', $cart_id)
+            ->join('products p', 'p.id = ci.product_id')
+            ->get()
+            ->getResult();
+
+        return $cart_items;
+    }
+
     public function getCartItems($session_id, $user_id)
     {
         $cart = $this->getActiveCart($session_id, $user_id);
@@ -182,51 +196,72 @@ class CartsModel
         return false;
     }
 
-    public function decreaseQtyAndGetSubtotal($item_id)
+    public function decreaseQtyAndGetTotals($item_id)
     {
-        //update total
-        $itemQuantity = $this->db
+        $cart_item = $this->db
             ->table('cart_items')
             ->where('id', $item_id)
             ->get()
-            ->getRow('quantity');
+            ->getRow();
 
-        $itemQuantity--;
+        $itemQuantity = $cart_item->quantity - 1;
 
         $newSubTotal = $this->updateSubtotal($item_id, 'decrease');
 
         if ($this->db->table('cart_items')
             ->where('id', $item_id)
-            ->update(
-                ['quantity' => $itemQuantity]
-            )) {
-            return $newSubTotal;
+            ->update(['quantity' => $itemQuantity])) {
+
+            $newTotal = $this->getTotalAmountInCart($cart_item->cart_id);
+            return [
+                'new_subtotal' => $newSubTotal,
+                'new_total' => $newTotal
+            ];
         }
 
         return false;
     }
 
-    public function increaseQtyAndGetSubtotal($item_id)
+    public function increaseQtyAndGetTotals($item_id)
     {
-        //update total
-        $itemQuantity = $this->db
+        $cart_item = $this->db
             ->table('cart_items')
             ->where('id', $item_id)
             ->get()
-            ->getRow('quantity');
+            ->getRow();
 
-        $itemQuantity++;
+        $itemQuantity = $cart_item->quantity + 1;
 
         $newSubTotal = $this->updateSubtotal($item_id, 'increase');
 
         if ($this->db->table('cart_items')
             ->where('id', $item_id)
-            ->update(
-                ['quantity' => $itemQuantity]
-            )) {
-            return $newSubTotal;
+            ->update(['quantity' => $itemQuantity])) {
+
+            $newTotal = $this->getTotalAmountInCart($cart_item->cart_id);
+            return [
+                'new_subtotal' => $newSubTotal,
+                'new_total' => $newTotal
+            ];
         }
 
         return false;
+    }
+
+    public function getTotalAmountInCart($cart_id)
+    {
+        $total = 0.0;
+
+        $cart_items = $this->db
+            ->table('cart_items')
+            ->where('cart_id', $cart_id)
+            ->get()
+            ->getResult();
+
+        foreach ($cart_items as $ci) {
+            $total += $ci->subtotal;
+        }
+
+        return $total;
     }
 }

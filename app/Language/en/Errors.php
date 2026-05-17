@@ -1,9 +1,20 @@
 <?php
 return [
-    'required' => 'Bitte füllen Sie die Pflichtfelder aus',
-    'min_length' => 'Die Felder müssen mindestens 6 Zeichen lang sein.',
-    'max_length' => 'Die Felder dürfen maximal 100 Zeichen lang sein.',
-    'valid_email' => 'Bitte geben Sie eine gültige E-Mail-Adresse ein.',
-    'wrong_credentials' => 'Ungültige E-Mail-Adresse oder Passwort.',
-    'confirm_password' => 'Passwörter müssen übereinstimmen.'
+    'full_name_required' => 'Please enter your full name.',
+    'full_name_min_length' => 'Full name must be at least 6 characters.',
+    'email_required' => 'Please enter your email address.',
+    'email_min_length' => 'Email must be at least 6 characters.',
+    'email_max_length' => 'Email cannot exceed 100 characters.',
+    'phone_required' => 'Please enter your phone number.',
+    'phone_min_length' => 'Phone number must be at least 10 digits.',
+    'address_required' => 'Please enter your shipping address.',
+    'cart_name_required' => 'Please enter the name on the card.',
+    'cvv_required' => 'Please enter the CVV code.',
+    'cvv_min_length' => 'CVV code must be 3 digits.',
+    'validity_required' => 'Please enter the card validity date.',
+    'card_number_required' => 'Please enter your card number.',
+    'card_number_min_length' => 'Card number must be at least 12 digits.',
+    'password_required' => 'Please enter your password.',
+    'password_min_length' => 'Password must be at least 6 characters.',
+    'password_max_length' => 'Password cannot exceed 100 characters.',
 ];

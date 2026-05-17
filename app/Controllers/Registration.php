@@ -33,18 +33,18 @@ class Registration extends BaseController
                 'email' => [
                     'rules' => 'required|min_length[6]|max_length[100]|valid_email',
                     'errors' => [
-                        'required' => lang('Errors.required'),
-                        'min_length' => lang('Errors.min_length'),
+                        'required' => lang('Errors.email_required'),
+                        'min_length' => lang('Errors.email_min_length'),
                         'valid_email' => lang('Errors.valid_email'),
-                        'max_length' => lang('Errors.max_length')
+                        'max_length' => lang('Errors.email_max_length')
                     ]
                 ],
                 'password' => [
                     'rules' => 'required|min_length[6]|max_length[100]',
                     'errors' => [
-                        'required' => lang('Errors.required'),
-                        'min_length' => lang('Errors.min_length'),
-                        'max_length' => lang('Errors.max_length')
+                        'required' => lang('Errors.password_required'),
+                        'min_length' => lang('Errors.password_min_length'),
+                        'max_length' => lang('Errors.password_max_length')
                     ]
                 ]
             ];

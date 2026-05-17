@@ -103,12 +103,13 @@ class Cart extends BaseController
     {
         $item_id = $this->request->getPost('cart_item_id');
 
-        $subtotal = $this->cartsModel->decreaseQtyAndGetSubtotal($item_id);
-        if ($subtotal) {
+        $totals = $this->cartsModel->decreaseQtyAndGetTotals($item_id);
+        if ($totals) {
             return $this->response->setJSON(
                 [
                     'success' => true,
-                    'subtotal' => $subtotal
+                    'subtotal' => $totals['new_subtotal'],
+                    'total' => $totals['new_total']
                 ]
             );
         }
@@ -118,13 +119,13 @@ class Cart extends BaseController
     {
         $item_id = $this->request->getPost('cart_item_id');
 
-        $subtotal = $this->cartsModel->increaseQtyAndGetSubtotal($item_id);
-
-        if ($subtotal) {
+        $totals = $this->cartsModel->increaseQtyAndGetTotals($item_id);
+        if ($totals) {
             return $this->response->setJSON(
                 [
                     'success' => true,
-                    'subtotal' => $subtotal
+                    'subtotal' => $totals['new_subtotal'],
+                    'total' => $totals['new_total']
                 ]
             );
         }
